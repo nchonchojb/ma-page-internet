@@ -384,6 +384,7 @@
             <a href="mailto:jncho985@gmail.com">Assistance</a>
         </p>
         <p style="font-size:0.85em; max-width:640px; margin:10px auto;">Ce site mesure son audience avec GoatCounter, un outil respectueux de la vie privée : aucun cookie n'est déposé et aucune information permettant de vous identifier n'est conservée. Seuls sont comptés le nombre de visites, les rubriques consultées et les clics sur les boutons.</p>
+        <p style="font-size:0.9em;">👁️ Visiteurs : <strong id="compteur-visites">…</strong></p>
         <p>&copy; 2026 N'cho N'cho Jean-Baptiste. Solutions logicielles indépendantes pour la santé publique.</p>
     </footer>
 
@@ -403,6 +404,17 @@
 
     <script data-goatcounter="https://nchonchojb.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+    <script>
+        // Affichage du nombre total de visiteurs (GoatCounter)
+        (function () {
+            var el = document.getElementById('compteur-visites');
+            if (!el) return;
+            fetch('https://nchonchojb.goatcounter.com/counter/TOTAL.json')
+                .then(function (r) { return r.json(); })
+                .then(function (d) { el.textContent = d.count; })
+                .catch(function () { el.parentNode.style.display = 'none'; });
+        })();
+    </script>
     <script>
         // Suivi des rubriques réellement affichées à l'écran (une seule fois par visite)
         (function () {
