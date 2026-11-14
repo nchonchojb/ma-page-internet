@@ -96,7 +96,7 @@
             background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 44px 20px 36px;
         }
         header h1 { font-size: 3.2em; font-weight: 800; letter-spacing: 1px; margin: 0; }
         header p { font-size: 1.3em; letter-spacing: 1px; margin-top: 15px; color: #caf0f8; }
@@ -122,6 +122,31 @@
             border-bottom: 2px solid transparent;
         }
         nav a:hover { border-bottom-color: #00b4d8; }
+        .hero { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 28px; align-items: center; text-align: center; }
+        .hero-text h1 { font-size: 2.8em; line-height: 1.15; }
+        .hero-text p { font-size: 1.15em; margin-top: 12px; }
+        .hero-text nav { margin-top: 24px; }
+        .profile-card {
+            background: rgba(255,255,255,0.09);
+            border: 1px solid rgba(202,240,248,0.30);
+            border-radius: 14px;
+            padding: 18px 20px;
+            text-align: left;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+        .profile-top { display: flex; gap: 16px; align-items: center; }
+        .profile-card .profile-img { width: 92px; height: 112px; flex: none; border-width: 3px; border-radius: 10px; }
+        .profile-card h2 { color: #fff; border: 0; padding: 0; margin: 0 0 4px; font-size: 1.05em; letter-spacing: .5px; }
+        .profile-role { margin: 0; font-size: .86em; color: #caf0f8; line-height: 1.4; }
+        .profile-card p { font-size: .9em; line-height: 1.55; margin: 12px 0 0; color: #eaf6fb; }
+        .profile-card strong { color: #fff; }
+        .profile-card details { margin-top: 6px; }
+        .profile-card summary { cursor: pointer; color: #90e0ef; font-weight: 600; font-size: .88em; margin-top: 10px; }
+        .profile-card summary:hover { color: #fff; }
+        @media(min-width: 900px) {
+            .hero { grid-template-columns: 1.15fr 1fr; text-align: left; gap: 40px; }
+            .hero-text h1 { font-size: 3em; }
+        }
         .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
         .section {
             background: white;
@@ -237,6 +262,8 @@
         footer a { color: var(--primary); margin: 0 8px; }
         @media(max-width: 600px) {
             header h1 { font-size: 2.2em; }
+            .hero-text h1 { font-size: 2.2em; }
+            .hero-text p { font-size: 1.05em; }
             header p { font-size: 1.05em; }
             nav a { display: inline-block; margin: 4px 8px; }
         }
@@ -245,29 +272,39 @@
 <body>
 
     <header>
-        <h1>N'cho N'cho <span style="color: #00b4d8; font-weight: 300;">Jean-Baptiste</span></h1>
-        <p>Ingénieur Logistique &amp; Expert en Gestion Pharmaceutique Terrain</p>
-        <div class="badge-header">✦ Concepteur Indépendant ✦</div>
-        <nav>
-            <a data-goatcounter-click="menu-expertise" data-goatcounter-title="Menu : Expertise" href="#expertise">Expertise</a>
-            <a data-goatcounter-click="menu-solutions" data-goatcounter-title="Menu : Solutions" href="#solutions">Créations</a>
-            <a data-goatcounter-click="menu-apercu" data-goatcounter-title="Menu : Aperçu" href="#apercu">Aperçu</a>
-            <a data-goatcounter-click="menu-demarrer" data-goatcounter-title="Menu : Premiers pas" href="#demarrer">Premiers pas</a>
-            <a data-goatcounter-click="menu-contact" data-goatcounter-title="Menu : Contact" href="#contact">Contact</a>
-        </nav>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>N'cho N'cho <span style="color: #00b4d8; font-weight: 300;">Jean-Baptiste</span></h1>
+                <p>Ingénieur Logistique &amp; Expert en Gestion Pharmaceutique Terrain</p>
+                <div class="badge-header">✦ Concepteur Indépendant ✦</div>
+                <nav>
+                    <a data-goatcounter-click="menu-expertise" data-goatcounter-title="Menu : Expertise" href="#expertise">Expertise</a>
+                    <a data-goatcounter-click="menu-solutions" data-goatcounter-title="Menu : Solutions" href="#solutions">Créations</a>
+                    <a data-goatcounter-click="menu-apercu" data-goatcounter-title="Menu : Aperçu" href="#apercu">Aperçu</a>
+                    <a data-goatcounter-click="menu-demarrer" data-goatcounter-title="Menu : Premiers pas" href="#demarrer">Premiers pas</a>
+                    <a data-goatcounter-click="menu-contact" data-goatcounter-title="Menu : Contact" href="#contact">Contact</a>
+                </nav>
+            </div>
+
+            <aside class="profile-card" id="expertise">
+                <div class="profile-top">
+                    <img src="photo-ncho.jpeg" alt="N'cho N'cho Jean-Baptiste" class="profile-img">
+                    <div>
+                        <h2>À propos de mon expertise</h2>
+                        <p class="profile-role">Préparateur et gestionnaire en pharmacie depuis 2019 · Master of Engineering en Logistique (Distribution)</p>
+                    </div>
+                </div>
+                <p>Responsable du service pharmacie du <strong>Centre de Santé Urbain (CSU) de Niambezaria</strong>, dans le département de Lakota, je conçois de façon indépendante des solutions logicielles adaptées au terrain sanitaire ivoirien.</p>
+                <details>
+                    <summary>Lire la suite</summary>
+                    <p>Parallèlement à mon expérience quotidienne du terrain sanitaire ivoirien, je suis titulaire d'un <strong>Master of Engineering en Logistique (spécialité Distribution)</strong>, obtenu au sein de la promotion <strong>2021-2023</strong> à l'Institut Supérieur de Mécanique de Paris (ISM Paris).</p>
+                    <p>C'est cette double compétence logistique et pharmaceutique qui m'a conduit à développer, de façon totalement indépendante, des solutions logicielles robustes, répondant précisément à la réalité fonctionnelle et aux besoins de traçabilité des structures de santé et des districts sanitaires de Côte d'Ivoire.</p>
+                </details>
+            </aside>
+        </div>
     </header>
 
     <div class="container">
-
-        <div class="section" id="expertise">
-            <h2>À propos de mon expertise</h2>
-            <div class="profile-container">
-                <img src="photo-ncho.jpeg" alt="N'cho N'cho Jean-Baptiste" class="profile-img">
-            </div>
-            <p>Depuis <strong>2019</strong>, j'exerce comme <strong>Préparateur et Gestionnaire en Pharmacie</strong>, Responsable du service pharmacie du Centre de Santé Urbain (CSU) de Niambezaria, dans le département de Lakota.</p>
-            <p>Parallèlement à mon expérience quotidienne du terrain sanitaire ivoirien, je suis titulaire d'un <strong>Master of Engineering en Logistique (spécialité Distribution)</strong>, obtenu au sein de la promotion <strong>2021-2023</strong> à l'Institut Supérieur de Mécanique de Paris (ISM Paris).</p>
-            <p>C'est cette double compétence logistique et pharmaceutique qui m'a conduit à développer, de façon totalement indépendante, des solutions logicielles robustes, répondant précisément à la réalité fonctionnelle et aux besoins de traçabilité des structures de santé et des districts sanitaires de Côte d'Ivoire.</p>
-        </div>
 
         <div class="section" id="solutions">
             <h2>Mes créations</h2>
